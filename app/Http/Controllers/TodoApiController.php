@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 class TodoApiController extends Controller
 {
     public function getAllTasks() {
-      
+        return response('Hello welcome');
       }
     
       public function createTask(Request $request) {
         // logic to create a student record goes here
 
         $task = new Task;
+        // $task->task = $request->task;
         $task->task = $request->task;
         $task->completed = false;
         $task->save();

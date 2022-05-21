@@ -20,8 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::get('tasks', 'TodoApiController@getAllTasks');
-Route::get('tasks/{id}', 'TodoApiController@getTask');
-Route::post('tasks/create', 'TodoApiController@createTask');
-Route::put('tasks/{id}', 'TodoApiController@updateTask');
-Route::delete('tasks/{id}','TodoApiController@deleteTask');
+Route::get('tasks', 'App\Http\Controllers\TodoApiController@getAllTasks');
+Route::get('tasks/{id}', 'App\Http\Controllers\TodoApiController@getTask');
+Route::post('tasks/create', 'App\Http\Controllers\TodoApiController@createTask');
+Route::put('tasks/{id}', 'App\Http\Controllers\TodoApiController@updateTask');
+Route::delete('tasks/{id}','App\Http\Controllers\TodoApiController@deleteTask');
