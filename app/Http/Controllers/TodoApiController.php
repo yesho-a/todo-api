@@ -1,30 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TodoApiController extends Controller
 {
     public function getAllTasks() {
-        return response('Hello welcome');
+      return Task::all();
+
       }
     
       public function createTask(Request $request) {
-        // logic to create a student record goes here
 
         $task = new Task;
         // $task->task = $request->task;
-        $task->task = $request->task;
-        $task->completed = false;
+        $task->task = $request->input('task');
+        $task->completed = $request->input('completed');
         $task->save();
-        
+  
         return response()->json([
         "message" => "student record created"], 201);
       }
   
       public function getTask($id) {
-        // logic to get a student record goes here
+        return Task::find($id);
+
       }
   
       public function updateTask(Request $request, $id) {
