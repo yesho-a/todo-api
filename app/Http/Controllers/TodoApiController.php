@@ -29,12 +29,16 @@ class TodoApiController extends Controller
       }
   
       public function updateTask(Request $request, $id) {
-        // logic to update a student record goes here
+        $task = Task::findOrFail($id);
+        $task->update($request->all());
+    
+        return $task;
       }
   
       public function deleteTask ($id) {
-        // logic to delete a student record goes here
-      }
+        Task::find($id)->delete();
+
+        return 204;      }
     
     
     
