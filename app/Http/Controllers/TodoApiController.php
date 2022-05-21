@@ -12,6 +12,14 @@ class TodoApiController extends Controller
     
       public function createTask(Request $request) {
         // logic to create a student record goes here
+
+        $task = new Task;
+        $task->task = $request->task;
+        $task->completed = false;
+        $task->save();
+        
+        return response()->json([
+        "message" => "student record created"], 201);
       }
   
       public function getTask($id) {
