@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::get('tasks', 'TodoApiController@getAllTasks');
+Route::get('tasks/{id}', 'TodoApiController@getTask');
+Route::post('tasks/create', 'TodoApiController@createTask');
+Route::put('tasks/{id}', 'TodoApiController@updateTask');
+Route::delete('tasks/{id}','TodoApiController@deleteTask');
