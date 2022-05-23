@@ -23,5 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('tasks', 'App\Http\Controllers\TodoApiController@getAllTasks');
 Route::get('tasks/{id}', 'App\Http\Controllers\TodoApiController@getTask');
 Route::post('tasks/create', 'App\Http\Controllers\TodoApiController@createTask');
-Route::put('update/{id}', 'App\Http\Controllers\TodoApiController@updateTask');
+Route::patch('update/{id}', 'App\Http\Controllers\TodoApiController@updateTask');
 Route::delete('delete/{id}','App\Http\Controllers\TodoApiController@deleteTask');
